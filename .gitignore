@@ -18,3 +18,4 @@ ip_bans.yaml
 secrets.yaml
 known_devices.yaml
 switches.yaml
+google_calendars.yaml
