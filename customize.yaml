@@ -1,0 +1,142 @@
+sensor.dark_sky_cloud_coverage:
+  hidden: true
+sensor.dark_sky_cloud_coverage_1:
+  hidden: true
+sensor.dark_sky_cloud_coverage_2:
+  hidden: true
+sensor.dark_sky_cloud_coverage_3:
+  hidden: true
+sensor.dark_sky_cloud_coverage_4:
+  hidden: true
+sensor.dark_sky_cloud_coverage_5:
+  hidden: true
+sensor.dark_sky_daily_summary:
+  hidden: true
+sensor.dark_sky_daytime_high_temperature:
+  hidden: true
+sensor.dark_sky_daytime_high_temperature_1:
+  hidden: true
+sensor.dark_sky_daytime_high_temperature_2:
+  hidden: true
+sensor.dark_sky_daytime_high_temperature_3:
+  hidden: true
+sensor.dark_sky_daytime_high_temperature_4:
+  hidden: true
+sensor.dark_sky_daytime_high_temperature_5:
+  hidden: true
+sensor.dark_sky_hourly_summary:
+  hidden: true
+sensor.dark_sky_humidity:
+  hidden: true
+sensor.dark_sky_humidity_1:
+  hidden: true
+sensor.dark_sky_humidity_2:
+  hidden: true
+sensor.dark_sky_humidity_3:
+  hidden: true
+sensor.dark_sky_humidity_4:
+  hidden: true
+sensor.dark_sky_humidity_5:
+  hidden: true
+sensor.dark_sky_icon:
+  hidden: true
+sensor.dark_sky_icon_1:
+  hidden: true
+sensor.dark_sky_icon_2:
+  hidden: true
+sensor.dark_sky_icon_3:
+  hidden: true
+sensor.dark_sky_icon_4:
+  hidden: true
+sensor.dark_sky_icon_5:
+  hidden: true
+sensor.dark_sky_overnight_low_temperature:
+  hidden: true
+sensor.dark_sky_overnight_low_temperature_1:
+  hidden: true
+sensor.dark_sky_overnight_low_temperature_2:
+  hidden: true
+sensor.dark_sky_overnight_low_temperature_3:
+  hidden: true
+sensor.dark_sky_overnight_low_temperature_4:
+  hidden: true
+sensor.dark_sky_overnight_low_temperature_5:
+  hidden: true
+sensor.dark_sky_precip_probability:
+  hidden: true
+sensor.dark_sky_precip_probability_1:
+  hidden: true
+sensor.dark_sky_precip_probability_2:
+  hidden: true
+sensor.dark_sky_precip_probability_3:
+  hidden: true
+sensor.dark_sky_precip_probability_4:
+  hidden: true
+sensor.dark_sky_precip_probability_5:
+  hidden: true
+sensor.dark_sky_pressure:
+  hidden: true
+sensor.dark_sky_pressure_1:
+  hidden: true
+sensor.dark_sky_pressure_2:
+  hidden: true
+sensor.dark_sky_pressure_3:
+  hidden: true
+sensor.dark_sky_pressure_4:
+  hidden: true
+sensor.dark_sky_pressure_5:
+  hidden: true
+sensor.dark_sky_summary:
+  hidden: true
+sensor.dark_sky_temperature:
+  hidden: true
+sensor.dark_sky_visibility:
+  hidden: true
+sensor.dark_sky_visibility_1:
+  hidden: true
+sensor.dark_sky_visibility_2:
+  hidden: true
+sensor.dark_sky_visibility_3:
+  hidden: true
+sensor.dark_sky_visibility_4:
+  hidden: true
+sensor.dark_sky_visibility_5:
+  hidden: true
+sensor.dark_sky_wind_bearing:
+  hidden: true
+sensor.dark_sky_wind_bearing_1:
+  hidden: true
+sensor.dark_sky_wind_bearing_2:
+  hidden: true
+sensor.dark_sky_wind_bearing_3:
+  hidden: true
+sensor.dark_sky_wind_bearing_4:
+  hidden: true
+sensor.dark_sky_wind_bearing_5:
+  hidden: true
+sensor.dark_sky_wind_speed:
+  hidden: true
+sensor.dark_sky_wind_speed_1:
+  hidden: true
+sensor.dark_sky_wind_speed_2:
+  hidden: true
+sensor.dark_sky_wind_speed_3:
+  hidden: true
+sensor.dark_sky_wind_speed_4:
+  hidden: true
+sensor.dark_sky_wind_speed_5:
+  hidden: true
+sensor.season:
+  hidden: true
+device_tracker.phone_phale:
+  hidden: true
+device_tracker.phone_phone:
+  hidden: true
+device_tracker.phone_ale_phone:
+  hidden: true
+sensor.temperatura_arduino:
+  icon: mdi:temperature-celsius
+sensor.umidita_arduino:
+  icon: mdi:water-percent
+switch.80027536807d3a4f3cdc:
+  friendly_name: Presa Jolly 2

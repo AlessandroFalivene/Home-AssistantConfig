@@ -1,0 +1,44 @@
+#################################################################
+## Input_boolean
+#################################################################
+
+#Test Switch
+ib_test1:
+  name: 'Test Switch 1'
+  initial: off
+
+ib_test2:
+  name: 'Test Switch 2'
+  initial: off
+
+#System Switch
+ib_giolav:
+  name: 'Giorno Lavorativo'
+  initial: off  
+ib_giofst:
+  name: 'Giorno Festivo'
+  initial: off
+
+#Vari
+ib_au_garbage:
+  name: 'Notifica Raccolta Rifiuti'
+  initial: on
+  icon: mdi:trash-can-outline
+
+ib_au_xmaslight:
+  name: 'Luci Natale'
+  initial: off
+  
+#Bagni
+ib_bath1_ta:
+  name: 'Termoarredo Bagno PT'
+  initial: off
+  icon: mdi:radiator
+ib_bath2_ta:
+  name: 'Termoarredo Bagno 1P'
+  initial: off
+  icon: mdi:radiator
+ib_bath3_ta:
+  name: 'Termoarredo Bagno 1P Elisa'
+  initial: off
+  icon: mdi:radiator

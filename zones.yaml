@@ -1,0 +1,5 @@
+- name: Ufficio
+  latitude: 45.3919098
+  longitude: 11.7765519
+  radius: 150
+  icon: mdi:office-building

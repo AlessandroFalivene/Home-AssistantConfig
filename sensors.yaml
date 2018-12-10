@@ -1,0 +1,65 @@
+- platform: mqtt
+  name: "Temperatura Arduino"
+  state_topic: "sensor/temperature"
+  qos: 0
+- platform: mqtt
+  name: "Umidità Arduino"
+  state_topic: "sensor/humidity"
+  qos: 0
+- platform: time_date
+  name: "Time"
+- platform: time_date
+  name: "Date"
+  display_options:
+    - 'date'
+- platform: template
+  sensors:
+    holidays_calendar:
+      friendly_name: 'Prossima Festività'
+      value_template: '{{ states.calendar.festivita_in_italia.attributes.message }}'
+
+##########################################################
+## HA Instance
+##########################################################
+
+- platform: command_line
+  command: python3 -c "import requests; print(requests.get('https://pypi.python.org/pypi/homeassistant/json').json()['info']['version'])"
+  name: Versione HA Corrente
+  scan_interval: 3600
+
+- platform: version
+  name: Versione HA installata
+
+- platform: uptime
+  
+- platform: command_line
+  name: CPU Temp
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "C"
+  value_template: '{{ value | multiply(0.001) | round(1) }}'
+
+- platform: command_line
+  name: "HA Ultimo Riavvio"
+  command: cat /proc/uptime | awk '{printf "%0.f", $1}'
+  scan_interval: 60
+  value_template: >-
+    {% set uptime = value | int %}
+    {% set seconds = uptime % 60 %}
+    {% set minutes = ((uptime % 3600) / 60) | int %}
+    {% set hours = ((uptime % 86400) / 3600) | int %}
+    {% set days = (uptime / 86400) | int %}
+    {%- if days > 0 -%}
+      {%- if days == 1 -%}
+        1 giorno
+      {%- else -%}
+        {{ days }} giorni
+      {%- endif -%}
+      {{ ', ' }}
+    {%- endif -%}
+    {{ '%02d' % hours }}:{{ '%02d' % minutes }}
+
+- platform: systemmonitor
+  resources:
+    - type: memory_free
+    - type: memory_use_percent
+    - type: processor_use

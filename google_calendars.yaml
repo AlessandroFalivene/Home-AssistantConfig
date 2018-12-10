@@ -1,0 +1,28 @@
+
+- cal_id: hassio.casafalivenesi18@gmail.com
+  entities:
+  - device_id: hassiocasafalivenesi18gmailcom
+    ignore_availability: true
+    name: hassio.casafalivenesi18@gmail.com
+    track: true
+
+- cal_id: d5gpvbvj1le83co40fc27mak78@group.calendar.google.com
+  entities:
+  - device_id: ritiro_rifiuti
+    ignore_availability: true
+    name: Ritiro Rifiuti
+    track: true
+
+- cal_id: '#contacts@group.v.calendar.google.com'
+  entities:
+  - device_id: contacts
+    ignore_availability: true
+    name: Contacts
+    track: true
+
+- cal_id: it.italian#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: festivita_in_italia
+    ignore_availability: true
+    name: "Festivit\xE0 in Italia"
+    track: true

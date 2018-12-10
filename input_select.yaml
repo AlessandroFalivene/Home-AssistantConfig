@@ -1,0 +1,11 @@
+is_current_theme:
+  name: 'Tema'
+  options:
+    - 'default'
+    - 'teal'
+    - 'darkorange'
+    - 'darkred'
+    - 'darkcyan'
+    - 'PmxMononight'
+  initial: 'default'
+  icon: 'mdi:palette'

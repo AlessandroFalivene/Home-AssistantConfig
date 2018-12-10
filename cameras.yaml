@@ -1,0 +1,27 @@
+###################################
+## MJPEG  
+###################################
+- platform: mjpeg
+  name: Telecamera Test
+  mjpeg_url: !secret cameraDlink1_Url
+  username: !secret cameraDlink1_Username
+  password: !secret cameraDlink1_Password
+- platform: mjpeg
+  name: Telecamera Garage
+  mjpeg_url: !secret cameraDlink2_Url
+  username: !secret cameraDlink2_Username
+  password: !secret cameraDlink2_Password
+
+###################################
+## GENRIC  
+###################################
+- platform: generic
+  still_image_url: https://www.yr.no/place/Italy/Veneto/Padua~3171727/meteogram.svg
+  name: meteogram
+  content_type: 'image/svg+xml'
+- platform: generic
+  name: Satellite
+  still_image_url: https://api.sat24.com/animated/IT/infraPolair/2/W_dot_%20Europe%20Standard%20Time/9969024
+- platform: generic
+  name: "Radar Pioggia"
+  still_image_url: https://api.sat24.com/animated/IT/rainTMC/2/W_dot_%20Europe%20Standard%20Time/2512043

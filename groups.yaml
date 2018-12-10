@@ -1,0 +1,55 @@
+### VIEWS
+default_view:
+  view: yes
+  icon: mdi:home-assistant
+  entities:
+    - group.weather_card_forecast
+    - group.camera
+    - group.family
+    - group.arduino_sensori
+
+telecamere_view:
+  name: Telecamere
+  icon: mdi:cctv
+  view: yes
+  entities:
+    - group.camera
+
+weather_view:
+  name: Meteo
+  icon: mdi:weather-partlycloudy
+  view: yes
+  entities:
+    - group.weather_card_forecast
+    - camera.meteogram
+    - camera.satellite
+    - camera.radar_pioggia
+
+media_view:
+  name: Multimedia
+  icon: mdi:play-circle
+  view: yes
+  entities:
+    - media_player.cucina
+    - media_player.roku_862774011240
+
+##GROUPS
+
+camera:
+  name: Camera
+  view: no
+  entities:
+    - camera.camera
+
+family:
+  name: Famiglia
+  view: no
+  entities: 
+    - device_tracker.phoneale_phale
+
+arduino_sensori:
+  name: Sensori Arduino
+  view: no
+  entities: 
+    - sensor.temperatura_arduino
+    - sensor.umidita_arduino
