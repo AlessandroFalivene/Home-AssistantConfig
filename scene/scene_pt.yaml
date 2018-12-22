@@ -1,0 +1,4 @@
+#- name: Salotto Normale
+#  entities:
+#    light.piantana_salotto:
+#      state: on

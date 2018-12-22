@@ -49,10 +49,6 @@ map:
 # Track the sun
 sun:
 
-# Text to speech
-tts:
-  - platform: google
-
 mqtt:
   broker: !secret cloudMqttServer
   port: !secret cloudMqttPort
@@ -86,6 +82,16 @@ google:
 
 # Cloud
 cloud:
+  google_actions:
+    filter:
+      include_domains:
+        - switch
+        - light
+
+# Text to speech
+tts:
+  - platform: google
+    language: it
 
 weather:
   - platform: yweather
@@ -102,13 +108,16 @@ notify:
     password: !secret hassioGAccountPassowrd
     username: !secret hassioGAccountUsername
     encryption: starttls
-    debug: True
     recipient:
       - !secret NotifyGmailRcp1
     sender_name: Home Assistant
-  - name: Notifica_pushbullet
-    platform: pushbullet
-    api_key: !secret pushBulletApiKey
+#  - name: Notifica_pushbullet
+#    platform: pushbullet
+#    api_key: !secret pushBulletApiKey
+  - name: Notifica_telegram
+    platform: telegram
+    chat_id: !secret telegramBotChatId_Ale
+    
 
 ifttt:
   key: !secret iftttWebsockKey
@@ -123,10 +132,22 @@ rainbird:
   host: !secret rainbirdIp
   password: !secret rainbirdPassword
 
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegramBotApiKey
+    allowed_chat_ids: 
+      - !secret telegramBotChatId_Ale
+      - !secret telegramBotChatGroupIFTT
+
+media_player:
+  - platform: roku
+    host: !secret rokuIP
+
 history: !include histories.yaml
 group: !include groups.yaml
 automation: !include_dir_merge_list automation
-script: !include scripts.yaml
+scene: !include_dir_merge_list scene
+script: !include_dir_merge_list scripts
 zone: !include zones.yaml
 frontend: !include frontend.yaml
 sensor: !include sensors.yaml

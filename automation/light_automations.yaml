@@ -1,0 +1,73 @@
+- id: change_hue_scene
+  alias: Change Hue Scene
+  trigger:
+    - platform: state
+      entity_id: input_select.is_hue_scene
+  action:
+    service: hue.hue_activate_scene
+    data_template:
+      group_name: 'Soggiorno'
+      scene_name: '{{ trigger.to_state.state }}'
+
+- id: huse_salotto_on
+  alias: Hue Salotto On
+  trigger:
+    - platform: state
+      entity_id: light.piantana_salotto
+      from: 'off'
+      to: 'on'
+  action:
+     service: input_select.select_option
+     entity_id: input_select.is_hue_scene
+     data:
+       option: 'Luce brillante'
+
+- id: play_media_light
+  alias: Cambio luci play media
+  trigger:
+    - platform: state
+      entity_id: media_player.roku_862774011240
+      from: 'idle'
+      to: 'play'
+    - platform: state
+      entity_id: media_player.chromecast0985
+      from: 'idle'
+      to: 'play'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: hue.hue_activate_scene
+    data:
+      group_name: 'Soggiorno'
+      scene_name: 'Luce soffusa'
+
+- id: pause_media_light
+  alias: Cambio luci pause media
+  trigger:
+    - platform: state
+      entity_id: media_player.roku_862774011240
+      from: 'play'
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.roku_862774011240
+      from: 'play'
+      to: 'pause'
+    - platform: state
+      entity_id: media_player.chromecast0985
+      from: 'play'
+      to: 'idle'
+    - platform: state
+      entity_id: media_player.chromecast0985
+      from: 'play'
+      to: 'pause'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: hue.hue_activate_scene
+    data:
+      group_name: 'Soggiorno'
+      scene_name: 'Luce brillante'

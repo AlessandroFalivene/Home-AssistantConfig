@@ -9,3 +9,20 @@ is_current_theme:
     - 'PmxMononight'
   initial: 'default'
   icon: 'mdi:palette'
+
+is_hue_scene:
+  name: 'Scena Hue'
+  options:
+    - 'Luce brillante'
+    - 'Luce soffusa'
+    - 'Tramonto nella savana'
+    - 'Tramonto tropicale'
+    - 'Aurora boreale'
+    - 'Fioritura primaverile'
+    - 'Relax'
+    - 'Lettura'
+    - 'Concentraizone'
+    - 'Energia'
+    - 'Luce notturna'
+  initial: 'Luce brillante'
+  icon: 'mdi:palette'

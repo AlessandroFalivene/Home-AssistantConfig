@@ -1,0 +1,33 @@
+- id: au_test_telegram_pingpong
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/ping'
+  action:
+    - service: notify.Notifica_telegram
+      data:
+        message: 'pong'
+
+- id: au_bot_motiondetection_enable
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/telecamereon'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.telecamera_garage_motion
+
+- id: au_bot_motiondetection_disable
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/telecamereoff'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.telecamera_garage_motion

@@ -1,0 +1,60 @@
+- id: update_available_notification
+  alias: Notifica Aggiornamento Disponibile
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: updater.updater
+  action:
+    service: notify.Notifica_telegram
+    data:
+      message: 'Disponibile una nuova versione di HomeAssistant'
+
+- id: change_current_theme
+  alias: Change Current Theme
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: input_select.is_current_theme
+  action:
+    - service: frontend.set_theme
+      data_template:
+        name: '{{states(''input_select.is_current_theme'')}}'
+
+- id: imposta_giorno_lav
+  alias: Imposta giorno lavorativo
+  initial_state: 'on'
+  trigger:
+    - platform: time
+      minutes: /30
+      seconds: 0
+  condition:
+    - condition: time
+      weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.ib_giolav
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.ib_giofst
+
+- id: imposta_giorno_fst
+  alias: Imposta giorno festivo
+  initial_state: 'on'
+  trigger:
+    - platform: time
+      minutes: /30
+      seconds: 0
+  condition:
+    - condition: time
+      weekday:
+      - sat
+      - sun
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.ib_giolav
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.ib_giofst

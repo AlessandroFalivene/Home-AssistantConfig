@@ -1,0 +1,113 @@
+- id: au_bath1_ta_on
+  alias: Termoarredo PT ON
+  trigger:
+    - platform: time
+      at: 06:30:00
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath1_ta
+      state: 'on'
+    - condition: state
+      entity_id: switch.80027536bcddc28a80b2
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.ib_giolav
+      state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.80027536bcddc28a80b2
+
+- id: au_bath1_ta_off
+  alias: Termoarredo PT OFF
+  trigger:
+    - platform: time
+      at: 07:30:00
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath1_ta
+      state: 'on'
+    - condition: state
+      entity_id: switch.80027536bcddc28a80b2
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.ib_giolav
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.80027536bcddc28a80b2
+
+- id: au_bath2_ta_on
+  alias: Termoarredo P1 ON
+  trigger:
+    - platform: time
+      at: 06:30:00
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath2_ta
+      state: 'on'
+    - condition: state
+      entity_id: switch.80027536807d3a4f32b3
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.ib_giolav
+      state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.80027536807d3a4f32b3
+
+- id: au_bath2_ta_off
+  alias: Termoarredo P1 OFF
+  trigger:
+    - platform: time
+      at: 07:30:00
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath2_ta
+      state: 'on'
+    - condition: state
+      entity_id: switch.80027536807d3a4f32b3
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.ib_giolav
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.80027536807d3a4f32b3
+
+- id: au_bath3_ta_on
+  alias: Termoarredo P1 Vasca ON
+  trigger:
+    - platform: time
+      at: 06:30:00
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath3_ta
+      state: 'on'
+    - condition: state
+      entity_id: switch.80027536b4e62d4206a5
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.ib_giolav
+      state: 'on'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.80027536b4e62d4206a5
+
+- id: au_bath3_ta_off
+  alias: Termoarredo P1 Vasca OFF
+  trigger:
+    - platform: time
+      at: 07:30:00
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath3_ta
+      state: 'on'
+    - condition: state
+      entity_id: switch.80027536b4e62d4206a5
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.ib_giolav
+      state: 'on'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.80027536b4e62d4206a5

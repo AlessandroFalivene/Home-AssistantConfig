@@ -79,6 +79,12 @@ views:
           - entity: switch.80027536bcddc28a80b2
             name: Termoarredo
       - type: entities
+        title: Salotto
+        show_header_toggle: false
+        entities:
+          - entity: light.piantana_salotto
+            name: Piantana
+      - type: entities
         title: Luci Natale
         show_header_toggle: false
         entities: 

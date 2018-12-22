@@ -1,0 +1,18 @@
+soggiorno_on:
+  sequence:
+     - service: hue.hue_activate_scene
+       data:
+          group_name: "Soggiorno"
+          scene_name: "Luce brillante"
+soggiorno_play_media:
+  sequence:
+     - service: hue.hue_activate_scene
+       data:
+          group_name: "Soggiorno"
+          scene_name: "Luce soffusa"
+soggiorno_change_scene:
+  sequence:
+     - service: hue.hue_activate_scene
+       data_template:
+          group_name: "{{ group_name }}"
+          scene_name: "{{ scene_name }}}"

@@ -6,6 +6,12 @@
 !*.yaml
 !.gitignore
 !*.md
+!www
+!automation
+!custom_components
+!packages
+!scene
+!scripts
 
 # Ignore folders.
 .storage

@@ -140,3 +140,5 @@ sensor.umidita_arduino:
   icon: mdi:water-percent
 switch.80027536807d3a4f3cdc:
   friendly_name: Presa Jolly 2
+media_player.roku_862774011240:
+  friendly_name: NOW Tv Box
