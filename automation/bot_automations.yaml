@@ -31,3 +31,48 @@
   action:
     - service: switch.turn_off
       entity_id: switch.telecamera_garage_motion
+
+- id: au_bot_offta1
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/termoptoff'
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/termoptoff'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.80027536bcddc28a80b2
+
+- id: au_bot_offta2
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/termo1poff'
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/termo1poff'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.80027536807d3a4f32b3
+
+- id: au_bot_offta3
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/termo1pvoff'
+    - platform: event
+      event_type: telegram_callback
+      event_data:
+        command: '/termo1pvoff'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.80027536b4e62d4206a5

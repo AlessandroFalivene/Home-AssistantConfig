@@ -111,3 +111,121 @@
   action:
     - service: switch.turn_off
       entity_id: switch.80027536b4e62d4206a5
+
+##Spegnimento automatico dopo 2h se non attiva automazione
+- id: au_bath1_autooff_2h
+  alias: Termoarredo PT OFF after 2h
+  trigger:
+    - platform: state
+      entity_id: switch.80027536bcddc28a80b2
+      to: 'on'
+      for:
+        hours: 2
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath1_ta
+      state: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.80027536bcddc28a80b2
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho spento il termoarredo del bagno piano terra in quanto attivo da 2 ore"
+
+- id: au_bath2_autooff_2h
+  alias: Termoarredo P1 OFF after 2h
+  trigger:
+    - platform: state
+      entity_id: switch.80027536807d3a4f32b3
+      to: 'on'
+      for:
+        hours: 2
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath2_ta
+      state: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.80027536807d3a4f32b3
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho spento il termoarredo del bagno primo piano in quanto attivo da 2 ore"
+
+- id: au_bath3_autooff_2h
+  alias: Termoarredo P1 Vasca OFF after 2h
+  trigger:
+    - platform: state
+      entity_id: switch.80027536b4e62d4206a5
+      to: 'on'
+      for:
+        hours: 2
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath3_ta
+      state: 'off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.80027536b4e62d4206a5
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho spento il termoarredo del bagno vasca in quanto attivo da 2 ore"
+
+- id: au_bath1_notifyoff_1h
+  alias: Termoarredo PT Notify OFF after 1h
+  trigger:
+    - platform: state
+      entity_id: switch.80027536bcddc28a80b2
+      to: 'on'
+      for:
+        seconds: 10
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath1_ta
+      state: 'off'
+  action:
+    - service: notify.Notifica_telegram
+      data:
+        message: "Atenzione, il termoarredo del bagno piano terra è attivo da 1 ora"
+        data:
+          inline_keyboard:
+            - 'Spegni Termoarredo:/termoptoff'
+
+- id: au_bath2_notifyoff_1h
+  alias: Termoarredo P1 Notify OFF after 1h
+  trigger:
+    - platform: state
+      entity_id: switch.80027536807d3a4f32b3
+      to: 'on'
+      for:
+        hours: 1
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath2_ta
+      state: 'off'
+  action:
+    - service: notify.Notifica_telegram
+      data:
+        message: "Atenzione, il termoarredo del bagno primo piano è attivo da 1 ora"
+        data:
+          inline_keyboard:
+            - 'Spegni Termoarredo:/termop1off'
+
+- id: au_bath3_notifyoff_1h
+  alias: Termoarredo P1 Vasca Notify OFF after 1h
+  trigger:
+    - platform: state
+      entity_id: switch.80027536b4e62d4206a5
+      to: 'on'
+      for:
+        hours: 1
+  condition:
+    - condition: state
+      entity_id: input_boolean.ib_bath3_ta
+      state: 'off'
+  action:
+    - service: notify.Notifica_telegram
+      data:
+        message: "Atenzione, il termoarredo del bagno vasca è attivo da 1 ora"
+        data:
+          inline_keyboard:
+            - 'Spegni Termoarredo:/termop1voff'
