@@ -177,7 +177,7 @@
       entity_id: switch.80027536bcddc28a80b2
       to: 'on'
       for:
-        seconds: 10
+        hours: 1
   condition:
     - condition: state
       entity_id: input_boolean.ib_bath1_ta

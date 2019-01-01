@@ -6,6 +6,8 @@ resources:
     type: js
   - url: /local/custom_ui/ritiro-rifiuti-card.js
     type: js
+  - url: /local/custom_ui/heat-pump-memo-data.js
+    type: js
 title: Casa
 views:
 #####
@@ -256,3 +258,4 @@ views:
             icon: mdi:water
           - entity: switch.zona_aiuola_confine
             icon: mdi:water
+      - type: custom:heat-pump-write-data-card

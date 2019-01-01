@@ -1,0 +1,3 @@
+- platform: workday
+  country: IT
+  workdays: [mon, tue, wed, thu, fri]

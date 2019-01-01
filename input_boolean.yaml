@@ -12,12 +12,12 @@ ib_test2:
   initial: off
 
 #System Switch
-ib_giolav:
-  name: 'Giorno Lavorativo'
-  initial: off  
-ib_giofst:
-  name: 'Giorno Festivo'
-  initial: off
+#ib_giolav:
+#  name: 'Giorno Lavorativo'
+#  initial: off  
+#ib_giofst:
+#  name: 'Giorno Festivo'
+#  initial: off
 
 #Vari
 ib_au_garbage:
@@ -28,7 +28,7 @@ ib_au_garbage:
 ib_au_xmaslight:
   name: 'Luci Natale'
   initial: off
-  
+
 #Bagni
 ib_bath1_ta:
   name: 'Termoarredo Bagno PT'

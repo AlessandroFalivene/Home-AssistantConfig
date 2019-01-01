@@ -10,7 +10,7 @@
       entity_id: switch.80027536807d3a4f34b5
       state: 'off'
     - condition: state
-      entity_id: input_boolean.ib_giolav
+      entity_id: 'binary_sensor.workday_sensor'
       state: 'on'
   action:
     - service: switch.turn_on
@@ -28,7 +28,7 @@
       entity_id: switch.80027536807d3a4f34b5
       state: 'on'
     - condition: state
-      entity_id: input_boolean.ib_giolav
+      entity_id: 'binary_sensor.workday_sensor'
       state: 'on'
   action:
     - service: switch.turn_off
@@ -44,8 +44,8 @@
       entity_id: switch.80027536807d3a4f34b5
       state: 'off'
     - condition: state
-      entity_id: input_boolean.ib_giofst
-      state: 'on'
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'off'
   action:
     - service: switch.turn_on
       entity_id: switch.80027536807d3a4f34b5
@@ -60,8 +60,8 @@
       entity_id: switch.80027536807d3a4f34b5
       state: 'on'
     - condition: state
-      entity_id: input_boolean.ib_giofst
-      state: 'on'
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'off'
   action:
     - service: switch.turn_off
       entity_id: switch.80027536807d3a4f34b5

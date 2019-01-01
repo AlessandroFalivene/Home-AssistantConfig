@@ -20,6 +20,9 @@
   action:
     - service: switch.turn_on
       entity_id: switch.telecamera_garage_motion
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho attivato il rilevamento dei movimenti in garage"
 
 - id: au_bot_motiondetection_disable
   hide_entity: true
@@ -31,6 +34,9 @@
   action:
     - service: switch.turn_off
       entity_id: switch.telecamera_garage_motion
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho disattivato il rilevamento dei movimenti in garage"
 
 - id: au_bot_offta1
   hide_entity: true
@@ -46,6 +52,9 @@
   action:
     - service: switch.turn_off
       entity_id: switch.80027536bcddc28a80b2
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho spento il termoarrdeo del bagno al piano terra"
 
 - id: au_bot_offta2
   hide_entity: true
@@ -61,6 +70,9 @@
   action:
     - service: switch.turn_off
       entity_id: switch.80027536807d3a4f32b3
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho spento il termoarrdeo del bagno al 1 piano"
 
 - id: au_bot_offta3
   hide_entity: true
@@ -76,3 +88,6 @@
   action:
     - service: switch.turn_off
       entity_id: switch.80027536b4e62d4206a5
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho spento il termoarrdeo del bagno vasca"

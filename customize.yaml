@@ -142,3 +142,7 @@ switch.80027536807d3a4f3cdc:
   friendly_name: Presa Jolly 2
 media_player.roku_862774011240:
   friendly_name: NOW Tv Box
+input_boolean.ib_heatpump_save: {}
+#####
+sensor.gchart:
+  custom_ui_state_card: heat-pump-data-gchart
