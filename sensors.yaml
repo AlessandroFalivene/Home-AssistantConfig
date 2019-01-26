@@ -18,6 +18,29 @@
       friendly_name: 'Prossima Festività'
       value_template: '{{ states.calendar.festivita_in_italia.attributes.message }}'
 
+- platform: template
+  sensors:
+    date_template:
+      friendly_name: 'Data Formattata'
+      value_template: '{{ as_timestamp(now()) | timestamp_custom("%d/%m/%Y", True) }}'
+
+- platform: template
+  sensors:
+    indicatore_giorno_lavorativo:
+      friendly_name: 'Giorno lavorativo'
+      value_template: >
+        {% if (is_state('binary_sensor.workday_sensor', 'on')) %}
+         on
+        {% else %}
+         off
+        {% endif %}
+      icon_template: >
+        {% if (is_state('binary_sensor.workday_sensor', 'on')) %}
+         mdi:briefcase
+        {% else %}
+         mdi:emoticon
+        {% endif %}
+
 ##########################################################
 ## HA Instance
 ##########################################################
@@ -63,3 +86,64 @@
     - type: memory_free
     - type: memory_use_percent
     - type: processor_use
+
+- platform: apcupsd
+  resources:
+    - bcharge
+    - loadpct
+    - status
+    - timeleft
+    - model
+    - linev
+
+- platform: template
+  sensors:
+    battery_sensore_camera_am:
+      friendly_name: 'Sensore temp. camera AM' 
+      unit_of_measurement: '%'
+      value_template: >
+          {%- if states.sensor.temperature_158d0002b548e2.attributes.battery_level %}
+              {{ states.sensor.temperature_158d0002b548e2.attributes.battery_level|round }}
+          {% else %}
+              {{ states.sensor.temperature_158d0002b548e2.state }}
+          {%- endif %}
+      icon_template: '{%- if  states.sensor.temperature_158d0002b548e2.attributes.battery_level <= 5 %}mdi:battery-outline{%- elif states.sensor.temperature_158d0002b548e2.attributes.battery_level >= 95 %}mdi:battery{% else %}mdi:battery-{{(states.sensor.temperature_158d0002b548e2.attributes.battery_level|float / 10)|round*10}}{%- endif %}'
+
+- platform: template
+  sensors:
+    battery_sensore_esterno:
+      friendly_name: 'Sensore temp. esterna' 
+      unit_of_measurement: '%'
+      value_template: >
+          {%- if states.sensor.temperature_158d0002b54aa2.attributes.battery_level %}
+              {{ states.sensor.temperature_158d0002b54aa2.attributes.battery_level|round }}
+          {% else %}
+              {{ states.sensor.temperature_158d0002b54aa2.state }}
+          {%- endif %}
+      icon_template: '{%- if  states.sensor.temperature_158d0002b54aa2.attributes.battery_level <= 5 %}mdi:battery-outline{%- elif states.sensor.temperature_158d0002b54aa2.attributes.battery_level >= 95 %}mdi:battery{% else %}mdi:battery-{{(states.sensor.temperature_158d0002b54aa2.attributes.battery_level|float / 10)|round*10}}{%- endif %}'
+
+- platform: template
+  sensors:
+    battery_sensore_camera_eli:
+      friendly_name: 'Sensore temp. camera Eli' 
+      unit_of_measurement: '%'
+      value_template: >
+          {%- if states.sensor.temperature_158d0002b6c54b.attributes.battery_level %}
+              {{ states.sensor.temperature_158d0002b6c54b.attributes.battery_level|round }}
+          {% else %}
+              {{ states.sensor.temperature_158d0002b6c54b.state }}
+          {%- endif %}
+      icon_template: '{%- if  states.sensor.temperature_158d0002b6c54b.attributes.battery_level <= 5 %}mdi:battery-outline{%- elif states.sensor.temperature_158d0002b6c54b.attributes.battery_level >= 95 %}mdi:battery{% else %}mdi:battery-{{(states.sensor.temperature_158d0002b6c54b.attributes.battery_level|float / 10)|round*10}}{%- endif %}'
+
+- platform: template
+  sensors:
+    battery_sensore_zona_giorno:
+      friendly_name: 'Sensore temp. zona giorno' 
+      unit_of_measurement: '%'
+      value_template: >
+          {%- if states.sensor.temperature_158d0002b549c2.attributes.battery_level %}
+              {{ states.sensor.temperature_158d0002b549c2.attributes.battery_level|round }}
+          {% else %}
+              {{ states.sensor.temperature_158d0002b549c2.state }}
+          {%- endif %}
+      icon_template: '{%- if  states.sensor.temperature_158d0002b549c2.attributes.battery_level <= 5 %}mdi:battery-outline{%- elif states.sensor.temperature_158d0002b549c2.attributes.battery_level >= 95 %}mdi:battery{% else %}mdi:battery-{{(states.sensor.temperature_158d0002b549c2.attributes.battery_level|float / 10)|round*10}}{%- endif %}'

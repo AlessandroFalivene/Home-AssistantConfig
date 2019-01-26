@@ -45,7 +45,8 @@ family:
   name: Famiglia
   view: no
   entities: 
-    - device_tracker.phoneale_phale
+    - device_tracker.google_maps_110116945072841592438
+    - device_tracker.google_maps_115723233401375370800
 
 arduino_sensori:
   name: Sensori Arduino

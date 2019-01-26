@@ -14,6 +14,7 @@ homeassistant:
   customize: !include customize.yaml
   packages: !include_dir_named packages
   whitelist_external_dirs: /home/homeassistant/.homeassistant/customdata
+
 # Show links to resources in log and frontend
 introduction:
 
@@ -61,17 +62,17 @@ mqtt:
 #  password: !secret mosquittoPassword
 
 device_tracker:
-  - platform: nmap_tracker
-    hosts: 192.168.1.50-59
-    home_interval: 10
-    exclude:
-      - !secret rainbirdIp
-      - !secret cameraDlink1_IP
-#  - platform: google_maps
-#    username: !secret hassioGAccountUsername
-#    password: !secret hassioGAccountPassowrd
-#    new_device_defaults:
-#      track_new_devices: true
+#  - platform: nmap_tracker
+#    hosts: 192.168.1.50-59
+#    home_interval: 10
+#    exclude:
+#      - !secret rainbirdIp
+#      - !secret cameraDlink1_IP
+  - platform: google_maps
+    username: !secret hassioGAccountUsername
+    password: !secret hassioGAccountPassowrd
+    new_device_defaults:
+      track_new_devices: true
 #  - platform: owntracks
 #    max_gps_accuracy: 100
 #  - platform: bluetooth_tracker
@@ -87,6 +88,7 @@ cloud:
       include_domains:
         - switch
         - light
+        - cover
 
 # Text to speech
 tts:
@@ -94,9 +96,9 @@ tts:
     language: it
 
 weather:
-  - platform: yweather
-    name: yweather
-    woeid: !secret woeid
+#  - platform: yweather
+#    name: yweather
+#    woeid: !secret woeid
 
 notify:
   - name: NOTIFICA_GMAIL
@@ -137,7 +139,6 @@ telegram_bot:
     api_key: !secret telegramBotApiKey
     allowed_chat_ids: 
       - !secret telegramBotChatId_Ale
-      - !secret telegramBotChatGroupIFTT
 
 media_player:
   - platform: roku
@@ -146,6 +147,15 @@ media_player:
 zwave:
   usb_path: /dev/zwave
   config_path: /srv/homeassistant/lib/python3.5/site-packages/python_openzwave/ozw_config
+
+xiaomi_aqara:
+  discovery_retry: 5
+  gateways:
+    - key: !secret aqaraKey
+
+apcupsd:
+  host: localhost
+  port: 3551
 
 history: !include histories.yaml
 group: !include groups.yaml
@@ -161,5 +171,6 @@ input_select: !include input_select.yaml
 #input_number: !include input_number.yaml
 #input_datetime: !include input_datetime.yaml
 camera: !include cameras.yaml
+cover: !include covers.yaml
 shell_command: !include shell_command.yaml
 binary_sensor: !include binary_sensors.yaml

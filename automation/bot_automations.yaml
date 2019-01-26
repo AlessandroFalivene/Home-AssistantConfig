@@ -91,3 +91,42 @@
     - service: notify.Notifica_telegram
       data:
         message: "Ho spento il termoarrdeo del bagno vasca"
+
+- id: au_bot_cover_close
+  hide_entity: true
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/chiuditapparelle'
+  action:
+    - service: cover.close_cover
+      entity_id: cover.tapparelle_zona_giorno
+    - service: cover.close_cover
+      entity_id: cover.tapparelle_zona_notte
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho chiusole tapparelle della casa"
+
+- id: au_test_telegram_cmd
+  hide_entity: true
+  trigger:
+    platform: event
+    event_type: telegram_command
+    event_data:
+      command: '/cmd'
+  action:
+    - service: notify.Notifica_telegram
+      data_template:
+        message: >
+         Telecamere: \n
+         /telecamereon - Attiva motion detection \n
+         /telecamereoff - Disattiva motion detection \n
+         Termoarredi: \n
+         /termoptoff - Spegne termoarredo bagno PT \n
+         /termo1poff - Spegne termoarredo bagno AM \n
+         /termo1pvoff - Spegne termoarredo bagno Eli \n
+         Tapparelle: \n
+         /chiuditapparelle - Chiude tutte le tapparelle della casa
+         Sistema: \n
+         /ping - Test Connessione

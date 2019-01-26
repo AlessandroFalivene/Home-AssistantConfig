@@ -1,0 +1,75 @@
+- id: au_cover_fam_lh
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: group.family
+    from: 'home'
+    to: 'not_home'
+  action:
+    - service: cover.close_cover
+      entity_id: cover.tapparelle_zona_giorno
+    - service: cover.close_cover
+      entity_id: cover.tapparelle_zona_notte
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho chiuso le tapparelle della casa"
+
+- id: au_cover_fam_th
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: group.family
+    from: 'not_home'
+    to: 'home'
+  condition:
+    condition: and
+    conditions:
+      - condition: sun
+        after: sunrise
+      - condition: sun
+        before: sunset
+#      - condition: state
+#        entity_id: group.family
+#        state: 'not_home'
+#        for:
+#          minutes: 45
+  action:
+    - service: cover.opne_cover
+      entity_id: cover.tapparelle_zona_giorno
+    - service: cover.open_cover
+      entity_id: cover.tapparelle_zona_notte
+
+- id: au_cover_lav_mattina
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '07:00:00'
+  condition:
+    - condition: state
+      entity_id: 'binary_sensor.workday_sensor'
+      state: 'on'
+  action:
+    - service: cover.open_cover
+      entity_id: cover.tapparelle_zona_giorno
+    - service: cover.set_cover_position
+      data:
+        entity_id: cover.tapparelle_zona_notte
+        position: 50
+
+- id: au_cover_sera_znotte
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '21:00:00'
+  action:
+    - service: cover.close_cover
+      entity_id: cover.tapparelle_zona_notte
+
+- id: au_cover_sera_zgiorno
+  hide_entity: true
+  trigger:
+    platform: time
+    at: '23:00:00'
+  action:
+    - service: cover.close_cover
+      entity_id: cover.tapparelle_zona_giorno

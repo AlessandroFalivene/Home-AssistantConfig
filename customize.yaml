@@ -143,6 +143,53 @@ switch.80027536807d3a4f3cdc:
 media_player.roku_862774011240:
   friendly_name: NOW Tv Box
 input_boolean.ib_heatpump_save: {}
-#####
 sensor.gchart:
   custom_ui_state_card: heat-pump-data-gchart
+zwave.fibaro_system_fgrm222_roller_shutter_controller_2:
+  friendly_name: FIBARO Tapparella Garage
+cover.fibaro_system_fgrm222_roller_shutter_controller_2_level:
+  friendly_name: Tapparella Garage
+cover.fibaro_system_fgrm222_roller_shutter_controller_2_level_2:
+  friendly_name: Tapparella Cucina
+cover.fibaro_system_fgrm222_roller_shutter_controller_2_level_3:
+  friendly_name: Tapparella Bagno
+  google_assistant_type: switch
+  google_assistant: true
+cover.fibaro_system_fgrm222_roller_shutter_controller_2_level_4:
+  friendly_name: Tapparella Porta Finestra
+cover.fibaro_system_fgrm222_roller_shutter_controller_2_level_5:
+  friendly_name: Tapparella Soggiorno
+zwave.fibaro_system_fgrm222_roller_shutter_controller_2_4:
+  friendly_name: FIBARO Tapparella porta finestra
+zwave.fibaro_system_fgrm222_roller_shutter_controller_2_8:
+  friendly_name: FIBARO Tapparella bagno AM
+zwave.fibaro_system_fgrm222_roller_shutter_controller_2_5:
+  friendly_name: FIBARO Tapparella soggiorno
+zwave.fibaro_system_fgrm222_roller_shutter_controller_2_9:
+  friendly_name: FIBARO Tapparella studio
+zwave.fibaro_system_fgrm222_roller_shutter_controller_2_3:
+  friendly_name: FIBARO Tapparella cucina
+zwave.fibaro_system_fgrm222_roller_shutter_controller_2_7:
+  friendly_name: FIBARO Tapparella Bagno Eli
+zwave.fibaro_system_fgrm222_roller_shutter_controller_2_6:
+  friendly_name: FIBARO Tapparella camera AM
+zwave.fibaro_system_fgrm222_roller_shutter_controller_2_2:
+  friendly_name: FIBARO Tapparella bagno giorno
+zwave.fibaro_system_fgrm222_roller_shutter_controller_2_10:
+  friendly_name: FIBARO Tapparella camera Eli
+sensor.temperature_158d0002b54aa2:
+  friendly_name: Temperatura Esterna
+sensor.temperature_158d0002b6c54b:
+  friendly_name: Temperatura camera Eli
+sensor.temperature_158d0002b548e2:
+  friendly_name: Temperatura camera AM
+sensor.temperature_158d0002b549c2:
+  friendly_name: Temperatura zona giorno
+sensor.humidity_158d0002b6c54b:
+  friendly_name: Umidità camera Eli
+sensor.humidity_158d0002b548e2:
+  friendly_name: Umidità camera AM
+sensor.humidity_158d0002b549c2:
+  friendly_name: Umidità zona giorno
+sensor.humidity_158d0002b54aa2:
+  friendly_name: Umidità esterna

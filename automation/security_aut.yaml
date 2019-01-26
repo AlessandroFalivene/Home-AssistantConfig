@@ -1,0 +1,31 @@
+- id: au_security_fam_lh
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: group.family
+    from: 'home'
+    to: 'not_home'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.telecamera_garage_motion
+    - service: cover.close_cover
+      entity_id: cover.tapparelle_zona_giorno
+    - service: cover.close_cover
+      entity_id: cover.tapparelle_zona_notte
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho attivato il rilevamento dei movimenti in garage"
+
+- id: au_security_fam_rh
+  hide_entity: true
+  trigger:
+    platform: state
+    entity_id: group.family
+    from: 'not_home'
+    to: 'home'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.telecamera_garage_motion
+    - service: notify.Notifica_telegram
+      data:
+        message: "Ho disattivato il rilevamento dei movimenti in garage"
